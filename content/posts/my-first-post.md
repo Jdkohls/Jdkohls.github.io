@@ -4,6 +4,4 @@ date: 2023-08-12
 draft: false
 ---
 
-## hello, cunt
-
-hi
+So you want to make a website?
