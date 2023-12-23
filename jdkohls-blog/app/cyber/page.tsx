@@ -1,5 +1,9 @@
 import Image from 'next/image'
 
 export default function Page(){ return(
-        <p> Jackson Kohls does Cybersec! </p>
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+                <div>
+                        <p> Jackson Kohls does Cybersec! </p>
+                </div>
+        </main>
 )}

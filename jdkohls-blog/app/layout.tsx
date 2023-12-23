@@ -1,16 +1,29 @@
 'use client'
 
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/app/ui/globals.css'
+import { inter } from '@/app/ui/fonts';
+import { Link } from 'next/link';
+
 
 import {usePathname} from 'next/navigation'; 
 
-const inter = Inter({ subsets: ['latin'] })
 
 const Path = () => {
   const pathname = usePathname()
-  return <p>{pathname}</p>
+  if (pathname == "/"){
+  return(<div className= "absolute right-8 pt-7">
+          <p>{pathname}</p>
+        </div>)
+  }
+  return(<div className= "absolute right-8 pt-7">
+          <p> 
+          Jackson Kohls 
+          <br /> {pathname}
+          </p>
+        </div>) //make a link, make it left justified
 }
+
 
 export default function RootLayout({
   children,
@@ -19,11 +32,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <div className= "absolute right-8 pt-7">
-          
+      <body className={`${inter.className} antialiased`}>
           <Path />
-        </div>
 
 
         {children}

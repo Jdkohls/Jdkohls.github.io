@@ -1,6 +1,7 @@
 import { link } from 'fs';
 import Image from 'next/image'
 import Link from 'next/link';
+import { SiGithub } from "react-icons/si";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
 
       
       <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial  before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <h2 className={`mb-3 text-2xl font-bold`}>
+        <h2 className={`mb-3 text-7xl font-bold`}>
             Jackson Kohls
         </h2>
       </div>
@@ -72,22 +73,15 @@ export default function Home() {
       </div>
 
 
-      <div className="absolute left-8">
-      <a
-            className="pointer-events-none flex gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://github.com/Jdkohls"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/github-mark.svg"
-              alt="Github Logo"
-              className="dark:invert"
-              width={30}
-              height={30}
-              priority
-            />
-          </a>
+      <div className="absolute right-8 bottom-8">
+        <a
+          className="pointer-events-none flex gap-2 p-8 lg:pointer-events-auto lg:p-0"
+          href="https://github.com/Jdkohls"
+          target="_blank"
+          rel="noopener noreferrer"
+        > 
+          <SiGithub size={30}/>
+        </a>
       </div>
     </main>
   )
