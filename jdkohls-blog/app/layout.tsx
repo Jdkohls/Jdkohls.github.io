@@ -3,23 +3,29 @@
 import { Inter } from 'next/font/google'
 import '@/app/ui/globals.css'
 import { inter } from '@/app/ui/fonts';
-import { Link } from 'next/link';
+import Link from 'next/link';
 
 
 import {usePathname} from 'next/navigation'; 
 
-
-const Path = () => {
+let Path = () => {
   const pathname = usePathname()
   if (pathname == "/"){
-  return(<div className= "absolute right-8 pt-7">
-          <p>{pathname}</p>
-        </div>)
+    return(<div className= "absolute left-8 pt-7">
+            <p>{pathname}</p>
+          </div>)
   }
-  return(<div className= "absolute right-8 pt-7">
+  let back_one = pathname.substring(0, pathname.lastIndexOf('/'));
+  if (!back_one) {
+    back_one = '/'
+  }
+  return(<div className= "absolute left-8 pt-7">
           <p> 
           Jackson Kohls 
-          <br /> {pathname}
+          <br />
+          <Link href={back_one}>
+            {pathname}
+          </Link>
           </p>
         </div>) //make a link, make it left justified
 }
