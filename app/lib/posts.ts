@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 
 export function getSortedPostsData(type: string) {
-    const postsDirectory = path.join(process.cwd(), "app/",type,'/posts');
+    const postsDirectory = path.join(process.cwd(), "app/posts/",type);
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {

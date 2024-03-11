@@ -1,7 +1,9 @@
 import Image from 'next/image'
 
 export default function Page(){ return(
-        <p> Resume Avaliable Upon Request 
-        <br />     Jackson.Kohls.2024@anderson.ucla.edu
-        </p>
+        <main className = "flex min-h-screen flex-col items-center justify-between p-24">
+                <p> Resume Avaliable Upon Request 
+                <br />     Jackson.Kohls.2024@anderson.ucla.edu
+                </p>
+        </main>
 )}

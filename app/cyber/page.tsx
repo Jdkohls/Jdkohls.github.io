@@ -15,7 +15,8 @@ export default function Home() {
   return (
     <main className = "flex min-h-screen flex-col items-center justify-between p-24">
     
-      <section className={''}>
+      <section className={''}> {/* simply not a good idea
+                                needs to be redone to make things pretty~ */}
         <h2 className={''}>Blog</h2>
         <ul className={''}>
           {allPostsData.map(({ id, date, title }) => (
@@ -25,6 +26,7 @@ export default function Home() {
               </div>
               {/* <br /> */}
               <small className='text-gray-500 font-medium'>
+                {date}
               </small>
             </li>
           ))}
