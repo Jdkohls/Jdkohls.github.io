@@ -27,7 +27,7 @@ let Path = () => {
             {pathname}
           </Link>
           </p>
-        </div>) //make a link, make it left justified
+        </div>)
 }
 
 
