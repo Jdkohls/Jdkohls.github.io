@@ -1,9 +1,34 @@
-import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Page(){ return(
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
-                <div>
-                        <p> Jackson Kohls does Cybersec! </p>
-                </div>
-        </main>
-)}
+import { getSortedPostsData } from '@/app/lib/posts'
+
+type AllPostsData = {
+  date: string
+  title: string
+  id: string
+}[]
+
+
+export default function Home() {
+  const allPostsData: AllPostsData = getSortedPostsData('cyber')
+
+  return (
+    <main className = "flex min-h-screen flex-col items-center justify-between p-24">
+    
+      <section className={''}>
+        <h2 className={''}>Blog</h2>
+        <ul className={''}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={''} key={id}>
+              <div className='font-medium mb-1 mt-5'>
+                <Link href={`/cyber/${id}`}>{title}</Link>
+              </div>
+              {/* <br /> */}
+              <small className='text-gray-500 font-medium'>
+              </small>
+            </li>
+          ))}
+        </ul>
+      </section> </main>
+  )
+}
