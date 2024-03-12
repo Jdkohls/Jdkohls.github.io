@@ -8,7 +8,7 @@ type Props = {
     params: data
 }
 
-type post = {
+type Post = {
     data: string
     metadata: Post_metadata
 }
@@ -19,13 +19,12 @@ type Post_metadata = {
   }
 
 export default async function Post({ params }: Props) {
-    const postData: post = getPostData('cyber', params.id)
+    const postData: Post = await getPostData('cyber', params.id)
     return(
-        <section className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+            <title>{postData.metadata.title}</title>
                     {postData.metadata.title}
-                <div>
-                        <p> {postData.data} </p>
-                </div>
-        </section>
+                    <div dangerouslySetInnerHTML={{ __html: postData.data }} />
+        </main>
     )
 }

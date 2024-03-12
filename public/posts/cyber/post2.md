@@ -1,7 +1,8 @@
 ---
 title: 'Be Fast | Mapna CTF 2024'
 tags: 'Crypto'
-author: Jackson Kohls
+author: 'Jackson Kohls'
+date: '2024-01-24'
 ---
 
 ## Be fast

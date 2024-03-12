@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 
 
@@ -35,12 +37,16 @@ export function getSortedPostsData(type: string) {
   });
 }
 
-export function getPostData(type: string, param: string) {
+export async function getPostData(type: string, param: string) {
   const fileName = path.join(process.cwd(), "public/posts/", type, "/", `${param}.md`);
   const fileContents = fs.readFileSync(fileName, 'utf8');
   const matterResult = matter(fileContents);
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
   return {
-    data: matterResult.content,
+    data: contentHtml,
     metadata: (matterResult.data as {date: string, title: string}),
   }
 }

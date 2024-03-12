@@ -37,14 +37,15 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-          <Path />
-
-
+    
+    <html lang="en">  
+      <body>
+      <header className={`${inter.className} antialiased`}>
+        <Path/>
+      </header>
+          
         {children}
-      
-      
+        
       </body>
     </html>
     
