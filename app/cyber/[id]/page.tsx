@@ -21,10 +21,10 @@ type Post_metadata = {
 export default async function Post({ params }: Props) {
     const postData: Post = await getPostData('cyber', params.id)
     return(
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center p-24">
             <title>{postData.metadata.title}</title>
-                    {postData.metadata.title}
-                    <div dangerouslySetInnerHTML={{ __html: postData.data }} />
+            <h1> {postData.metadata.title} </h1>
+            <section dangerouslySetInnerHTML={{ __html: postData.data }} />
         </main>
     )
 }
