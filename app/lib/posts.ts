@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 
 export function getSortedPostsData(type: string) {
-    const postsDirectory = path.join(process.cwd(), "app/posts/",type);
+    const postsDirectory = path.join(process.cwd(), "public/posts/",type);
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames.map((fileName) => {
@@ -34,3 +34,14 @@ export function getSortedPostsData(type: string) {
     }
   });
 }
+
+export function getPostData(type: string, param: string) {
+  const fileName = path.join(process.cwd(), "public/posts/", type, "/", `${param}.md`);
+  const fileContents = fs.readFileSync(fileName, 'utf8');
+  const matterResult = matter(fileContents);
+  return {
+    data: matterResult.content,
+    metadata: (matterResult.data as {date: string, title: string}),
+  }
+}
+
