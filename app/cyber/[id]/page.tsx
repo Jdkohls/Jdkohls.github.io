@@ -1,23 +1,28 @@
-import { getPostData } from '@/app/lib/posts'
+import { getAllPostIds, getPostData } from '@/app/lib/posts'
 import Markdown from 'react-markdown'
 
-type Props = {
-  params: {
-    id: string
-  }
+export async function generateStaticParams() {
+  const posts = getAllPostIds('cyber')
+
+  console.log(posts)
+
+  return posts.map((post) => ({
+    id: post.id,
+  }))
 }
 
-export default async function Post({ params }: Props) {
-  const postData = await getPostData('cyber', params.id)
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const postData = await getPostData('cyber', id)
 
   return (
     <article>
       <h1>{postData.metadata.title}</h1>
-      <p>{postData.metadata.date}</p>
-
-      <Markdown>
-        {postData.data}
-      </Markdown>
+      <Markdown>{postData.data}</Markdown>
     </article>
   )
 }
