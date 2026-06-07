@@ -1,5 +1,3 @@
-'use client'
-
 import { getPostData } from '@/app/lib/posts'
 
 import Markdown from 'react-markdown'
@@ -26,7 +24,7 @@ type Post_metadata = {
 
 
 
-export default function Post({ params }: Props) {
+export default async function Post({ params }: Props) {
     const postData: Post = await getPostData('cyber', params.id)
     return(
         createRoot(document.body).render(<Markdown>{postData.data}</Markdown>)

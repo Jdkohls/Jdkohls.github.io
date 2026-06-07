@@ -37,7 +37,7 @@ export function getSortedPostsData(type: string) {
   });
 }
 
-export function getPostData(type: string, param: string) {
+export function async getPostData(type: string, param: string) {
   const fileName = path.join(process.cwd(), "public/posts/", type, "/", `${param}.md`);
   const fileContents = fs.readFileSync(fileName, 'utf8');
   const matterResult = matter(fileContents);
