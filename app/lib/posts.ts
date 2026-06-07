@@ -5,6 +5,15 @@ import { remark } from 'remark';
 import html from 'remark-html';
 
 
+interface PostMetadata {
+  date: string
+  title: string
+}
+
+interface PostData {
+  data: string
+  metadata: PostMetadata
+}
 
 export function getSortedPostsData(type: string) {
     const postsDirectory = path.join(process.cwd(), "public/posts/",type);
@@ -37,17 +46,25 @@ export function getSortedPostsData(type: string) {
   });
 }
 
-export async function  getPostData(type: string, param: string) {
-  const fileName = path.join(process.cwd(), "public/posts/", type, "/", `${param}.md`);
-  const fileContents = fs.readFileSync(fileName, 'utf8');
-  const matterResult = matter(fileContents);
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+
+export async function getPostData(
+  type: string,
+  param: string
+): Promise<PostData> {
+  const fileName = path.join(
+    process.cwd(),
+    'public',
+    'posts',
+    type,
+    `${param}.md`
+  )
+
+  const fileContents = fs.readFileSync(fileName, 'utf8')
+
+  const matterResult = matter(fileContents)
+
   return {
-    data: contentHtml,
-    metadata: (matterResult.data as {date: string, title: string}),
+    data: matterResult.content, // raw markdown
+    metadata: matterResult.data as PostMetadata,
   }
 }
-
