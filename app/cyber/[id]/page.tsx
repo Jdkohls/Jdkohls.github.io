@@ -26,7 +26,7 @@ type Post_metadata = {
 
 
 
-export default async function Post({ params }: Props) {
+export default function Post({ params }: Props) {
     const postData: Post = await getPostData('cyber', params.id)
     return(
         createRoot(document.body).render(<Markdown>{postData.data}</Markdown>)
