@@ -15,6 +15,15 @@ interface PostData {
   metadata: PostMetadata
 }
 
+export function getAllPostIds(type: string): string[] {
+  const dir = path.join(process.cwd(), 'public/posts', type)
+
+  return fs
+    .readdirSync(dir)
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => file.replace(/\.md$/, ''))
+}
+
 export function getSortedPostsData(type: string) {
     const postsDirectory = path.join(process.cwd(), "public/posts/",type);
     // Get file names under /posts
@@ -47,10 +56,7 @@ export function getSortedPostsData(type: string) {
 }
 
 
-export async function getPostData(
-  type: string,
-  param: string
-): Promise<PostData> {
+export async function getPostData( type: string, param: string): Promise<PostData> {
   const fileName = path.join(
     process.cwd(),
     'public',

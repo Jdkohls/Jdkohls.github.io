@@ -8,6 +8,13 @@ type AllPostsData = {
   id: string
 }[]
 
+export async function generateStaticParams() {
+  const posts = getSortedPostsData('cyber')
+
+  return posts.map((id) => ({
+    id,
+  }))
+}
 
 export default function Home() {
   const allPostsData: AllPostsData = getSortedPostsData('cyber')
