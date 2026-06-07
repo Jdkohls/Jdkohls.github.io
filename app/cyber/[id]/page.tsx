@@ -1,4 +1,28 @@
 import { getPostData } from '@/app/lib/posts'
+import Markdown from 'react-markdown'
+
+type Props = {
+  params: {
+    id: string
+  }
+}
+
+export default async function Post({ params }: Props) {
+  const postData = await getPostData('cyber', params.id)
+
+  return (
+    <article>
+      <h1>{postData.metadata.title}</h1>
+      <p>{postData.metadata.date}</p>
+
+      <Markdown>
+        {postData.data}
+      </Markdown>
+    </article>
+  )
+}
+/*
+import { getPostData } from '@/app/lib/posts'
 
 import Markdown from 'react-markdown'
 import {createRoot} from 'react-dom/client'
@@ -30,7 +54,7 @@ export default async function Post({ params }: Props) {
         createRoot(document.body).render(<Markdown>{postData.data}</Markdown>)
     )
 }
-
+*/
   /*
 createRoot(document.body).render(<Markdown>{postData.data}</Markdown>)
 export default async function Post({ params }: Props) {
