@@ -16,7 +16,9 @@ export default function Home() {
       </div>
 
       
-      <div className="grid my-auto text-center lg:max-w-5xl lg:w-full lg:grid-cols-4 lg:text-left"> //lg:mb-0 sets it to bottom in  large screens
+      <div className="grid my-auto text-center lg:max-w-5xl lg:w-full lg:grid-cols-4 lg:text-left"> {/*lg:mb-0 sets it to bottom in  large screens
+      LMFAOFAIMFWOAMMMM YOU NEED TO COMMENT BRACES BECAUSE HOW IT COMPILES MY SIDES
+      */}
         <Link
           href="/finance"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
