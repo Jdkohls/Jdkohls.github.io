@@ -2,7 +2,7 @@ import { getAllPostIds, getPostData } from '@/app/lib/posts'
 import Markdown from 'react-markdown'
 
 export async function generateStaticParams() {
-  const posts = getAllPostIds('blog')
+  const posts = getAllPostIds('cyber')
 
   console.log(posts)
 
@@ -17,7 +17,7 @@ export default async function Post({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const postData = await getPostData('blog', id)
+  const postData = await getPostData('finance', id)
 
   return (
     <div className="p-6 max-w-3xl mx-auto">

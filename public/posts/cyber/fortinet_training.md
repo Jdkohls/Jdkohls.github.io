@@ -3,9 +3,9 @@ title: 'Fortinet Educational Workshop'
 date: '2024-04-25'
 ---
 
-CISSP Credits: 4
+> CISSP Credits: 4
 
-Threathunting workshop
+> Threathunting workshop
 
 22mil paid for ransomware by change healthcare.
 Law enforcement doesn't like paying ransomware attacks.

@@ -20,12 +20,19 @@ export default async function Post({
   const postData = await getPostData('cyber', id)
 
   return (
-    <article>
+    <div className="p-6 max-w-3xl mx-auto">
+    <article className="prose lg:prose-xl dark:prose-invert mt-[5rem]">
       <h1>{postData.metadata.title}</h1>
       <Markdown>{postData.data}</Markdown>
-    </article>
+    </article></div>
   )
 }
+
+
+
+
+
+
 /*
 import { getPostData } from '@/app/lib/posts'
 
