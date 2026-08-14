@@ -2,7 +2,7 @@ import { getAllPostIds, getPostData } from '@/app/lib/posts'
 import Markdown from 'react-markdown'
 
 export async function generateStaticParams() {
-  const posts = getAllPostIds('cyber')
+  const posts = getAllPostIds('finance')
 
   console.log(posts)
 
