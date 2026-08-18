@@ -1,0 +1,18 @@
+{
+    "name": "harbor",
+    "outgoing": [
+        "gatekeeper's grove",
+        "korthos island",
+        "marketplace",
+        "inspired quarter",
+        "spinner's prison",
+        "hut from beyond",
+        "village of tanaroa",
+        "barrel's bottom",
+        "sharn",
+        "ataraxia's haven"
+    ],
+    "special": [
+        "guild airship"
+    ]
+}

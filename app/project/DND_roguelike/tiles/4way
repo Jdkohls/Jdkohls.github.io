@@ -1,0 +1,11 @@
+{
+    "layout":"+",
+    "corruption_value":1,
+    "tokens":0,
+    "item_table":0,
+    
+    "consumables": [],
+    "relics": [],
+    "rare": [],
+    "hazards": []
+}

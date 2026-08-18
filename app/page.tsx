@@ -4,6 +4,11 @@ import Link from 'next/link';
 import { SiGithub } from "react-icons/si";
 import {cinzel} from '@/app/ui/fonts';
 
+const lists = [["finance", "Quantitative Finance"], 
+              ["cyber", "Cyber"],
+              ["blog", "Blog"],
+              ["more", "Contact"]]
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

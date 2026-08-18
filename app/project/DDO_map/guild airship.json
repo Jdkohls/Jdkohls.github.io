@@ -1,0 +1,8 @@
+{
+    "name":"guild airship",
+    "outgoing":[
+        "harbor",
+        "marketplace",
+        "sharn"
+    ]
+}
