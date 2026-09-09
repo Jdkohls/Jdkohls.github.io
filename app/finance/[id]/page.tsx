@@ -1,5 +1,8 @@
 import { getAllPostIds, getPostData } from '@/app/lib/posts'
 import Markdown from 'react-markdown'
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
 
 export async function generateStaticParams() {
   const posts = getAllPostIds('finance')
@@ -23,7 +26,12 @@ export default async function Post({
     <div className="p-6 max-w-3xl mx-auto">
     <article className="prose lg:prose-xl dark:prose-invert mt-[5rem]">
       <h1>{postData.metadata.title}</h1>
-      <Markdown>{postData.data}</Markdown>
+        <Markdown
+          remarkPlugins={[remarkMath]} 
+          rehypePlugins={[rehypeKatex]}
+        >
+            {postData.data}
+        </Markdown>
     </article></div>
   )
 }

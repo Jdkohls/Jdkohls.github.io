@@ -1,5 +1,5 @@
 ---
-title: 'Nonconstant exponential distrobustions'
+title: 'Nonconstant exponential distribustions'
 date: '2026-09-08'
 ---
 
